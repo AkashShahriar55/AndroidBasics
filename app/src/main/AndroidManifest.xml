@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.akash.androidbasics">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AndroidBasics"
+        tools:targetApi="31">
+        <activity
+            android:name=".ServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+        define properties such as the permissions that are required to start the service
+        and the process in which the service should run.
+
+        To ensure that your app is secure, always use an explicit intent when
+        starting a Service and don't declare intent filters for your services.
+        Using an implicit intent to start a service is a security hazard
+        because you cannot be certain of the service that responds to the intent,
+        and the user cannot see which service starts. Beginning with Android 5.0 (API level 21),
+        the system throws an exception if you call bindService() with an implicit intent.
+
+        -->
+
+        <!--
+            This effectively stops other apps from starting your service, even when using an explicit intent.
+         -->
+        <service
+
+            android:name=".ForeGroundService"
+            android:description="This is an important service do not close "
+            android:exported="false"
+            >
+
+        </service>
+
+
+    </application>
+
+</manifest>
